@@ -12,3 +12,7 @@ data.json
 npm-debug.log
 
 package-lock.json
+
+.next
+.next/**
+**/.next/**

@@ -1,0 +1,8 @@
+NODE_ENV=production
+MODE=production
+SERVER_PORT=3000
+CONTEXT_NAME=/api
+ORIGINS_ALLOWED=http://localhost:3000
+ORIGINS_READ_ONLY=http://localhost:3000
+CORS_ENABLED=false
+TZ=America/Argentina/Buenos_Aires

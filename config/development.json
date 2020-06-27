@@ -1,0 +1,10 @@
+{
+  "server": {
+    "port": 3000,
+    "context": "/api",
+    "origins": "http://localhost:3000",
+    "originsReadOnly": "http://localhost:3000",
+    "corsEnabled": false,
+    "tz": "America/Argentina/Buenos_Aires"
+  }
+}

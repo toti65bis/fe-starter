@@ -16,3 +16,11 @@ package-lock.json
 .next
 .next/**
 **/.next/**
+
+dist
+dist/**
+**/dist/**
+
+out
+out/**
+**/out/**

@@ -1,5 +1,7 @@
+import Message from '@components/Message';
+
 function AboutPage() {
-    return <div>About</div>
+  return <Message>Message component</Message>
 }
 
 export default AboutPage

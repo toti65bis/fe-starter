@@ -5,11 +5,14 @@ const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const helmet = require('helmet');
+const config = require('config');
 const nextRoutes = require('../routes/nextRoutes');
 const routes = require('../routes/routes');
 const pjson = require('../package.json');
 
-const port = parseInt(process.env.PORT, 10) || 3000;
+const serverConfig = config.get('server');
+
+const port = parseInt(serverConfig.port, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 
 const app = next({ dev });

@@ -1,15 +1,12 @@
 import '@babel/polyfill';
-import 'react-app-polyfill/ie9';
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
 import React, { Fragment } from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import idx from 'idx';
 import getSpaConfig from '../src/config/spa/index';
 
-import getAppConfig from '@lib/utils/config';
-const { config } = getAppConfig();
+//import getAppConfig from '@lib/utils/config';
+//const { config } = getAppConfig();
 
 interface AppProps {
     config: any;

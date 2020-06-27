@@ -1,7 +1,8 @@
 /* eslint-disable */
-const environment = process.env.NODE_ENV || 'development';
+// @ts-ignore
+const env = process.env.NODE_ENV || 'development';
 
-console.info(`Starting app with ENV = ${environment}`);
+console.info(`Starting app with ENV = ${env}`);
 
 const localConfig = {
     'development': {
@@ -22,4 +23,4 @@ const localConfig = {
     },
 };
 
-module.exports = localConfig[environment];
+module.exports = localConfig[env];

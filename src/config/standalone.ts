@@ -1,5 +1,6 @@
 /* eslint-disable */
-const environment = process.env.NODE_ENV || 'development';
+// @ts-ignore
+const env = process.env.NODE_ENV || 'development';
 const MODE = 'standalone';
 
 const standaloneConfig = {
@@ -24,4 +25,4 @@ const standaloneConfig = {
         },
     },
 };
-module.exports = standaloneConfig[environment];
+module.exports = standaloneConfig[env];

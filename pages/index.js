@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import React, {Component} from 'react';
 import { getAppConfig } from '@lib';
 import AppRouter from '../src/commons/AppRouter';

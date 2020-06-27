@@ -7,6 +7,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const nextRoutes = require('../routes/nextRoutes');
 const routes = require('../routes/routes');
+const pjson = require('../package.json');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -33,11 +34,7 @@ app.prepare().then(() => {
         immutable: true
     }))
 
-    server.get('*', (req, res) => {
-        return handler(req, res)
-    })
-
-    routes.appRouter(server);
+    routes(server, pjson.version);
 
     server.use(handler).listen(port, () => {
         console.log(`> Ready on http://localhost:${port}`)

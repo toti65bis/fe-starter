@@ -1,10 +1,10 @@
 const config = require('config');
 
-module.exports =  (server) => {
+module.exports =  (app) => {
   const serverConfig = config.get('server');
   const context = serverConfig.context;
 
-  server.get(encodeURI(context + '/health'), function (req, res) {
+  app.get(encodeURI(`${context}/health`), (req, res) => {
     res.json({ status: 'UP' });
   });
 }

@@ -6,7 +6,6 @@ let currentPage = 'ContainerTest';
 class ContainerTest extends Component<{ location: any }, {}> {
     constructor(props) {
         super(props);
-        //console.log('STATE: ', this.props.location.state);
     }
 
     render() {

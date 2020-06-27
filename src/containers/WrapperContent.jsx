@@ -8,8 +8,6 @@ class WrapperContent extends Component {
     };
   }
 
-
-
   componentDidMount() {
     this.setState(prevState => ({
       ...prevState,

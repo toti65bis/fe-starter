@@ -3,7 +3,12 @@ import React, { Fragment } from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import idx from 'idx';
+import withRedux from 'next-redux-wrapper'
+import { withRouter } from 'next/router'
+import { Provider } from 'react-redux'
 import getSpaConfig from '../src/config/spa/index';
+
+import createStore from '../src/store/createStore';
 
 //import getAppConfig from '@lib/utils/config';
 //const { config } = getAppConfig();
@@ -12,13 +17,15 @@ interface AppProps {
     config: any;
     pageProps: any;
     cdnBasepath: any;
+    store: any;
 }
 
-export default class MyApp extends App<AppProps> {
+class MyApp extends App<AppProps> {
     static displayName = 'Nextjs Starter';
 
     static async getInitialProps({ Component, ctx }) {
         let pageProps: any = {};
+        let store: any = {};
         //let spaProps: any = {};
 
         if (Component.getInitialProps) {
@@ -46,7 +53,7 @@ export default class MyApp extends App<AppProps> {
     }
 
     render() {
-        let { Component, pageProps } = this.props;
+        let { Component, pageProps, store } = this.props;
         const env = idx(pageProps.config, _ => _.environment) || 'development';
         //const DEBUG = env === 'production' ? false : true;
         const spaProps = getSpaConfig(env);
@@ -87,8 +94,15 @@ export default class MyApp extends App<AppProps> {
                         }}
                     />
                 </Head>
-                <Component {...pageProps} />
+                <Provider store={store}>
+                    <Component {...pageProps} />
+                </Provider>
             </Fragment>
         );
     }
 }
+
+export default withRedux(createStore)(
+    //MyApp
+    withRouter(MyApp)
+)

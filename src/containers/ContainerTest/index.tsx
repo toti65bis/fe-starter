@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import WrapperContent from '@containers/WrapperContent';
 import Message from "@components/Message";
+import { connect } from 'react-redux';
+
+import * as userActions from '../../actions/userAction';
+
 let currentPage = 'ContainerTest';
 
-class ContainerTest extends Component<{ location: any }, {}> {
+class ContainerTest extends Component<{ user: any }, {}> {
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        //console.log(this.props);
+        this.props.traerUser();
     }
 
     render() {
@@ -17,4 +26,10 @@ class ContainerTest extends Component<{ location: any }, {}> {
     }
 }
 
-export default ContainerTest;
+const mapStateToProps = (reducers) => {
+    return {
+        ...reducers.userReducer
+    };
+};
+
+export default connect(mapStateToProps, userActions)(ContainerTest);

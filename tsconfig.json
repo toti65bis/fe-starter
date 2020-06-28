@@ -34,6 +34,24 @@
       "@containers/*": [
         "src/containers/*"
       ],
+      "@actions/*": [
+        "./src/actions/*"
+      ],
+      "@reducers/*": [
+        "./src/reducers/*"
+      ],
+      "@types/*": [
+        "./src/types/*"
+      ],
+      "@actions/*": [
+        "src/actions/*"
+      ],
+      "@reducers/*": [
+        "src/reducers/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
       "@lib": [
         "./src/lib/index.ts"
       ],

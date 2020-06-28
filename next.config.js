@@ -95,6 +95,9 @@ module.exports = withPlugins([[typescript]], {
         '@contexts': resolve(__dirname, 'src/contexts/'),
         '@components': resolve(__dirname, 'src/components/'),
         '@containers': resolve(__dirname, 'src/containers/'),
+        '@actions': resolve(__dirname, 'src/actions/'),
+        '@reducers': resolve(__dirname, 'src/reducers/'),
+        '@types': resolve(__dirname, 'src/types/'),
       },
     };
 

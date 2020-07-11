@@ -3,12 +3,12 @@ import reduxThunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 import getAppConfig from '@lib/utils/config';
-//import getSpaConfig from '../config/spa';
-/*const spaConfig = getSpaConfig(config.environment);*/
+import getSpaConfig from '../config/spa';
 
 import rootReducer from '../reducers';
 
 const { config } = getAppConfig();
+const spaConfig = getSpaConfig(config.environment);
 
 const createMiddlewares = (debug) => {
   const middlewares = [reduxThunk];
@@ -48,10 +48,10 @@ const immutableChildren = (obj) => {
 
 export default (initialState = {}, context) => {
   const { isServer } = context;
-  const middlewares = createMiddlewares(true);
+  const middlewares = createMiddlewares(spaConfig.debug);
   const state = immutableChildren(initialState);
   const composeEnhancers = compose(
-    typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    spaConfig.debug && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
       : (f) => f
   );

@@ -16,8 +16,8 @@ const getAppConfig: Function = (): AppConfig => {
   if (isSSR) {
     appConfig = require('../../config/local');
   } else {
-    appConfig = window['__NEXT_DATA__'].props.pageProps;
-    appConfig.config.buildId = window['__NEXT_DATA__'].buildId;
+    appConfig = window['__NEXT_DATA__'].props.initialProps.pageProps;
+    appConfig.config.buildId = appConfig.buildId;
   }
 
   //console.log(appConfig);

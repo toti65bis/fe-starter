@@ -1,20 +1,40 @@
 /* eslint-disable */
-const MODE_INTEGRATED = 'integrated';
 const MODE_STANDALONE = 'standalone';
 
 const spaConfig = {
-    "development": {
-        bffUrl: 'http://localhost:3000/api',
-        mode: MODE_STANDALONE,
-        staticUrl: './public/static',
-    },
-    "production": {
-        bffUrl: 'http://localhost:3000/api',
-        mode: MODE_STANDALONE,
-        staticUrl: './public/static',
-    }
+  local: {
+    bffUrl: 'http://localhost:3000/api',
+    mode: MODE_STANDALONE,
+    staticUrl: './public/static',
+    debug: true,
+  },
+  'local-mock': {
+    bffUrl: 'http://localhost:3000/api',
+    mode: MODE_STANDALONE,
+    staticUrl: './public/static',
+    debug: true,
+  },
+  server: {
+    bffUrl: 'http://localhost:3000/api',
+    mode: MODE_STANDALONE,
+    staticUrl: './public/static',
+    debug: true,
+  },
+  development: {
+    bffUrl: 'http://localhost:3000/api',
+    mode: MODE_STANDALONE,
+    staticUrl: './public/static',
+    debug: true,
+  },
+  production: {
+    bffUrl: 'http://localhost:3000/api',
+    mode: MODE_STANDALONE,
+    staticUrl: './public/static',
+    debug: false,
+  },
 };
 
-module.exports = function getOBConfigByEnviroment(environment) {
-    return spaConfig[environment];
+module.exports = function getConfigByEnviroment(environment) {
+  //console.log('SPA CONFIG: env: ',environment,'config: ',spaConfig[environment]);
+  return spaConfig[environment];
 };

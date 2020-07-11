@@ -1,28 +1,57 @@
 /* eslint-disable */
-// @ts-ignore
-const env = process.env.NODE_ENV || 'development';
+const environment = process.env.ENV || 'server';
 const MODE = 'standalone';
 
 const standaloneConfig = {
-    'development': {
-        config: {
-            appBasepath: '/',
-            cdnBasepath: '',
-            spa: {
-                bffUrl: 'http://localhost:3000',
-                mode: MODE,
-            },
-        },
+  local: {
+    config: {
+      appBasepath: '/',
+      cdnBasepath: '',
+      spa: {
+        bffUrl: 'http://localhost:3000/api',
+        mode: MODE,
+      },
     },
-    'production': {
-        config: {
-            appBasepath: '/',
-            cdnBasepath: '',
-            spa: {
-                bffUrl: process.env.REACT_APP_BFF_URL,
-                mode: MODE,
-            },
-        },
+  },
+  'local-mock': {
+    config: {
+      appBasepath: '/',
+      cdnBasepath: '',
+      spa: {
+        bffUrl: 'http://localhost:3000/api',
+        mode: MODE,
+      },
     },
+  },
+  server: {
+    config: {
+      appBasepath: '/',
+      cdnBasepath: '',
+      spa: {
+        bffUrl: process.env.REACT_APP_BFF_URL,
+        mode: MODE,
+      },
+    },
+  },
+  development: {
+    config: {
+      appBasepath: '/',
+      cdnBasepath: '',
+      spa: {
+        bffUrl: process.env.REACT_APP_BFF_URL,
+        mode: MODE,
+      },
+    },
+  },
+  production: {
+    config: {
+      appBasepath: '/',
+      cdnBasepath: '',
+      spa: {
+        bffUrl: process.env.REACT_APP_BFF_URL,
+        mode: MODE,
+      },
+    },
+  },
 };
-module.exports = standaloneConfig[env];
+module.exports = standaloneConfig[environment];

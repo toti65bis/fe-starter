@@ -6,5 +6,6 @@
     "originsReadOnly": "ORIGINS_READ_ONLY",
     "corsEnabled": "CORS_ENABLED",
     "tz": "TZ"
-  }
+  },
+  "bff_url": "REACT_APP_BFF_URL"
 }

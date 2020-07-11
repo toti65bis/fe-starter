@@ -1,26 +1,49 @@
 /* eslint-disable */
-// @ts-ignore
-const env = process.env.NODE_ENV || 'development';
+const environment = process.env.ENV || 'local-mock';
 
-console.info(`Starting app with ENV = ${env}`);
+console.info(`Starting app with ENV = ${environment}`);
 
 const localConfig = {
-    'development': {
-        config: {
-            buildId: '',
-            appBasepath: '',
-            cdnBasepath: '',
-            environment: 'development',
-        },
+  local: {
+    config: {
+      buildId: '',
+      appBasepath: '',
+      cdnBasepath: '',
+      environment: 'local',
     },
-    'production': {
-        config: {
-            buildId: '',
-            appBasepath: '',
-            cdnBasepath: '',
-            environment: 'server',
-        },
+  },
+  'local-mock': {
+    config: {
+      buildId: '',
+      appBasepath: '',
+      cdnBasepath: '',
+      environment: 'local-mock',
     },
+  },
+  development: {
+    config: {
+      buildId: '',
+      appBasepath: '',
+      cdnBasepath: '',
+      environment: 'development',
+    },
+  },
+  server: {
+    config: {
+      buildId: '',
+      appBasepath: '',
+      cdnBasepath: '',
+      environment: 'server',
+    },
+  },
+  production: {
+    config: {
+      buildId: '',
+      appBasepath: '',
+      cdnBasepath: '',
+      environment: 'server',
+    },
+  },
 };
 
-module.exports = localConfig[env];
+module.exports = localConfig[environment];

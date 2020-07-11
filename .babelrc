@@ -1,10 +1,13 @@
 {
   "presets": [
-    "next/babel"
+    "next/babel",
+    "@zeit/next-typescript/babel"
   ],
   "plugins": [
     "inline-dotenv",
     "styled-components",
+    ["styled-jsx/babel", { "optimizeForSpeed": true }],
+    ["babel-plugin-idx"],
     ["module-resolver", {
       "root": ["./src"]
     }]

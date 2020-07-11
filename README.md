@@ -1,1 +1,3 @@
-# nextjs-starter
+# NextJS - Starter Kit
+
+### React - Redux - Express

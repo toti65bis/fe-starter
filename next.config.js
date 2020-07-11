@@ -10,55 +10,19 @@ const copyFile = promisify(fs.copyFile);
 const isProd = process.env.NODE_ENV === 'production';
 const webpack = require('webpack');
 
-const assetPrefix = isProd ? process.env.NODE_ENV || '' : ''
-
-/*module.exports = {
-  assetPrefix,
-  target: 'serverless',
-  webpack: (config, { dev }) => {
-    config.output.publicPath = `${assetPrefix}${config.output.publicPath}`
-
-    // Setting Alias
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...config.resolve.alias,
-        '@lib': resolve(__dirname, 'src/lib/'),
-        '@config': resolve(__dirname, 'src/config/'),
-        '@contexts': resolve(__dirname, 'src/contexts/'),
-        '@components': resolve(__dirname, 'src/components/'),
-        '@containers': resolve(__dirname, 'src/containers/'),
-      },
-    };
-
-    config.module.rules.push({
-      test: /\.(woff|woff2|eot|ttf|otf)$/,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 8192,
-            fallback: 'file-loader',
-            publicPath: '/_next/static/fonts/',
-            outputPath: 'static/fonts/',
-            name: '[name]-[hash].[ext]',
-          },
-        },
-      ],
-    });
-
-    return config
-  }
-}*/
+const assetPrefix = isProd ? process.env.CDN_URL || '' : '';
 
 module.exports = withPlugins([[typescript]], {
   //useFileSystemPublicRoutes: false,
   assetPrefix,
   target: 'serverless',
   publicRuntimeConfig: {
-    bff_url: process.env.BFF_URL
+    bff_url: process.env.BFF_URL,
   },
-  exportPathMap: async (defaultPathMap, { dev, dir, outDir, distDir, buildId }) => {
+  exportPathMap: async (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) => {
     if (dev) {
       return defaultPathMap;
     }
@@ -77,9 +41,9 @@ module.exports = withPlugins([[typescript]], {
 
       if (
         entries['main.js'] &&
-        !entries['main.js'].includes(resolve(__dirname,'client/polyfills.js'))
+        !entries['main.js'].includes(resolve(__dirname, 'client/polyfills.js'))
       ) {
-        entries['main.js'].unshift(resolve(__dirname,'client/polyfills.js'));
+        entries['main.js'].unshift(resolve(__dirname, 'client/polyfills.js'));
       }
 
       return entries;
@@ -144,5 +108,5 @@ module.exports = withPlugins([[typescript]], {
     }
 
     return config;
-  }
+  },
 });

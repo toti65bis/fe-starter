@@ -3,10 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "allowJs": true,
     "noEmit": true,
@@ -19,54 +16,22 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@lib/*": [
-        "./src/lib/*"
-      ],
-      "@config/": [
-        "./src/config/*"
-      ],
-      "@contexts/*": [
-        "./src/contexts/*"
-      ],
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@containers/*": [
-        "src/containers/*"
-      ],
-      "@actions/*": [
-        "./src/actions/*"
-      ],
-      "@reducers/*": [
-        "./src/reducers/*"
-      ],
-      "@types/*": [
-        "./src/types/*"
-      ],
-      "@actions/*": [
-        "src/actions/*"
-      ],
-      "@reducers/*": [
-        "src/reducers/*"
-      ],
-      "@types/*": [
-        "src/types/*"
-      ],
-      "@lib": [
-        "./src/lib/index.ts"
-      ],
-      "@config": [
-        "./src/config/index.ts"
-      ],
-      "@contexts": [
-        "./src/contexts/index.ts"
-      ],
-      "@components": [
-        "src/components/index.ts"
-      ],
-      "@containers": [
-        "src/containers/index.ts"
-      ]
+      "@lib/*": ["./src/lib/*"],
+      "@config/": ["./src/config/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@components/*": ["src/components/*"],
+      "@containers/*": ["src/containers/*"],
+      "@actions/*": ["./src/actions/*"],
+      "@reducers/*": ["./src/reducers/*"],
+      "@types/*": ["./src/types/*"],
+      "@actions/*": ["src/actions/*"],
+      "@reducers/*": ["src/reducers/*"],
+      "@types/*": ["src/types/*"],
+      "@lib": ["./src/lib/index.ts"],
+      "@config": ["./src/config/index.ts"],
+      "@contexts": ["./src/contexts/index.ts"],
+      "@components": ["src/components/index.ts"],
+      "@containers": ["src/containers/index.ts"]
     },
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -74,12 +39,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

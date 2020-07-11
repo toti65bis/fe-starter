@@ -3,7 +3,7 @@ import reduxThunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 import getAppConfig from '@lib/utils/config';
-import getSpaConfig from '../config/spa';
+//import getSpaConfig from '../config/spa';
 /*const spaConfig = getSpaConfig(config.environment);*/
 
 import rootReducer from '../reducers';

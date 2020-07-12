@@ -19,6 +19,10 @@ module.exports = withPlugins([ [typescript],[sass] ], {
   assetPrefix,
   publicRuntimeConfig: {
     bff_url: process.env.BFF_URL,
+    aws_region: process.env.AWS_REGION,
+    aws_user_pool: process.env.AWS_USER_POOL,
+    aws_identity_pool: process.env.AWS_IDENTITY_POOL,
+    aws_client_id: process.env.AWS_CLIENT_ID
   },
   exportPathMap: async (defaultPathMap, { dev, dir, outDir, distDir, buildId }) => {
     if (dev) {

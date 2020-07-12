@@ -4,12 +4,14 @@ import App from 'next/app';
 import Head from 'next/head';
 import idx from 'idx';
 import withRedux from 'next-redux-wrapper';
-import { withRouter } from 'next/router';
 import { Provider } from 'react-redux';
 import getSpaConfig from '../src/config/spa/index';
 //import getAppConfig from '@lib/utils/config';
 
 import createStore from '../src/store/createStore';
+
+
+
 
 //const { config } = getAppConfig();
 
@@ -103,4 +105,4 @@ class MyApp extends App<AppProps> {
   }
 }
 
-export default withRedux(createStore)(withRouter(MyApp));
+export default withRedux(createStore)(MyApp)

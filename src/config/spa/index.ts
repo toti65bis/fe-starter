@@ -20,6 +20,10 @@ const getSpaConfig: Function = (environment): SpaConfig => {
     environment !== 'local-mock'
   ) {
     conf.bffUrl = getConfig().publicRuntimeConfig.bff_url;
+    conf.cognito.region = getConfig().publicRuntimeConfig.aws_region;
+    conf.cognito.userPool = getConfig().publicRuntimeConfig.aws_user_pool;
+    conf.cognito.identityPool = getConfig().publicRuntimeConfig.aws_identity_pool;
+    conf.cognito.clientId = getConfig().publicRuntimeConfig.aws_client_id;
   }
 
   return conf;

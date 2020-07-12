@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { SignOut, ConfirmSignIn, ConfirmSignUp, ForgotPassword, RequireNewPassword, SignIn, SignUp, VerifyContact, withAuthenticator } from 'aws-amplify-react';
+import awsConfig from '../config/spa/awsConfig';
+import Amplify  from 'aws-amplify';
+
+Amplify.configure(awsConfig);
 
 class WrapperContent extends Component {
   constructor(props) {
@@ -9,6 +14,7 @@ class WrapperContent extends Component {
   }
 
   componentDidMount() {
+    
     this.setState(prevState => ({
       ...prevState,
       currentPage: this.props.currentPage,
@@ -35,4 +41,6 @@ class WrapperContent extends Component {
   }
 }
 
-export default WrapperContent;
+
+ export default withAuthenticator(WrapperContent, true);
+  

@@ -23,7 +23,7 @@ class ContainerTest extends Component<{ user: any; traerUser: any }, {}> {
     return (
       <WrapperContent currentPage={currentPage}>
         <Message>Hola mundo container test</Message>
-        <Message>{user.name}</Message>
+        <Message >{user.name}</Message>
       </WrapperContent>
     );
   }

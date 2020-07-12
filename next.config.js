@@ -1,5 +1,6 @@
 const typescript = require('@zeit/next-typescript');
 const withPlugins = require('next-compose-plugins');
+const sass = require('@zeit/next-sass')
 const webpack = require('webpack');
 
 const fs = require('fs');
@@ -12,7 +13,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const assetPrefix = isProd ? process.env.CDN_URL || '' : '';
 
-module.exports = withPlugins([[typescript]], {
+module.exports = withPlugins([ [typescript],[sass] ], {
   //useFileSystemPublicRoutes: false,
   //target: 'serverless',
   assetPrefix,

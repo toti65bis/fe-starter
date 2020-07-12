@@ -2,3 +2,7 @@ body {
     background: lightskyblue;
     font-family: "Helvetica", SansSerif;
 }
+
+p {
+    font-size: 14px;
+}

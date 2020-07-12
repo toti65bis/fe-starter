@@ -34,7 +34,7 @@ class MyApp extends App<AppProps> {
       pageProps: {
         ...pageProps,
         isServer: 'req' in ctx,
-      },
+      }
     };
   }
 

@@ -1,11 +1,20 @@
 {
   "presets": [
     "next/babel",
-    "@zeit/next-typescript/babel"
+    "@zeit/next-typescript/babel",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ]
   ],
   "plugins": [
     "inline-dotenv",
     "styled-components",
+    ["@babel/plugin-transform-runtime"],
     ["styled-jsx/babel", { "optimizeForSpeed": true }],
     ["babel-plugin-idx"],
     ["module-resolver", {

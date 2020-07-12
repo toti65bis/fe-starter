@@ -1,4 +1,5 @@
 /* eslint-disable */
+// @ts-ignore
 const environment = process.env.ENV || 'local-mock';
 
 console.info(`Starting app with ENV = ${environment}`);

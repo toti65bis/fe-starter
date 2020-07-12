@@ -1,36 +1,30 @@
 const typescript = require('@zeit/next-typescript');
 const withPlugins = require('next-compose-plugins');
+const webpack = require('webpack');
 
 const fs = require('fs');
 const { promisify } = require('util');
+
 const { join, resolve } = require('path');
 
 const copyFile = promisify(fs.copyFile);
-
 const isProd = process.env.NODE_ENV === 'production';
-const webpack = require('webpack');
 
-const assetPrefix = isProd ? process.env.CDN_URL || '' : '';
+const assetPrefix = isProd ? process.env.NODE_ENV || '' : '';
 
 module.exports = withPlugins([[typescript]], {
   //useFileSystemPublicRoutes: false,
+  //target: 'serverless',
   assetPrefix,
-  target: 'serverless',
   publicRuntimeConfig: {
     bff_url: process.env.BFF_URL,
   },
-  exportPathMap: async (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) => {
+  exportPathMap: async (defaultPathMap, { dev, dir, outDir, distDir, buildId }) => {
     if (dev) {
       return defaultPathMap;
     }
 
-    await copyFile(
-      join(distDir, 'build-manifest.json'),
-      join(outDir, 'build-manifest.json')
-    );
+    await copyFile(join(distDir, 'build-manifest.json'), join(outDir, 'build-manifest.json'));
     await copyFile(join(distDir, 'BUILD_ID'), join(outDir, 'BUILD_ID'));
     return defaultPathMap;
   },
@@ -97,6 +91,7 @@ module.exports = withPlugins([[typescript]], {
                   modules: false,
                   targets: {
                     // Recommended in: https://jamie.build/last-2-versions
+                    esmodules: true,
                     browsers: ['>0.25%', 'ie 10', 'not op_mini all'],
                   },
                 },

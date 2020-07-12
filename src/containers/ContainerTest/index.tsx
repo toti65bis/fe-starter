@@ -3,7 +3,7 @@ import WrapperContent from '@containers/WrapperContent';
 import Message from '@components/Message';
 import { connect } from 'react-redux';
 
-import * as userActions from '../../actions/userAction';
+import * as userActions from '@actions/userAction';
 
 let currentPage = 'ContainerTest';
 

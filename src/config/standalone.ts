@@ -1,4 +1,5 @@
 /* eslint-disable */
+// @ts-ignore
 const environment = process.env.ENV || 'server';
 const MODE = 'standalone';
 

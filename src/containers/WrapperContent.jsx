@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { SignOut, ConfirmSignIn, ConfirmSignUp, ForgotPassword, RequireNewPassword, SignIn, SignUp, VerifyContact, withAuthenticator } from 'aws-amplify-react';
+import { withAuthenticator, AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import awsConfig from '../config/spa/awsConfig';
 import Amplify  from 'aws-amplify';
+//import { CognitoSignIn } from '@components/';
 
 Amplify.configure(awsConfig);
+
+
 
 class WrapperContent extends Component {
   constructor(props) {
@@ -13,6 +16,8 @@ class WrapperContent extends Component {
     };
   }
 
+
+ 
   componentDidMount() {
     
     this.setState(prevState => ({
@@ -32,6 +37,12 @@ class WrapperContent extends Component {
           {/*MAIN-CONTENT*/}
           <div className="main-content">
             {children}
+            <AmplifyAuthenticator usernameAlias="email">
+              <div>
+                My App
+                <AmplifySignOut />
+              </div>    
+            </AmplifyAuthenticator>
           </div>
           {/* /MAIN-CONTENT*/}
         </div>
@@ -42,5 +53,6 @@ class WrapperContent extends Component {
 }
 
 
- export default withAuthenticator(WrapperContent, true);
+
+ export default withAuthenticator(WrapperContent)
   

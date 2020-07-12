@@ -10,7 +10,7 @@ const { join, resolve } = require('path');
 const copyFile = promisify(fs.copyFile);
 const isProd = process.env.NODE_ENV === 'production';
 
-const assetPrefix = isProd ? process.env.NODE_ENV || '' : '';
+const assetPrefix = isProd ? process.env.CDN_URL || '' : '';
 
 module.exports = withPlugins([[typescript]], {
   //useFileSystemPublicRoutes: false,
